@@ -15,15 +15,14 @@ install -d /usr/local/etc/v2ray
 cat << EOF > /usr/local/etc/v2ray/config.json
 {
   "log": {
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log",
-    "loglevel": "none"
+    "access": "none",
+    "loglevel": "error"
   },
   "inbounds": [
     {
-      "port": $PORT,
+      "port": 8080,
       "tag": "VLESS-in",
-      "protocol": "VLESS",
+      "protocol": "vless",
       "settings": {
         "clients": [
           {
@@ -36,45 +35,16 @@ cat << EOF > /usr/local/etc/v2ray/config.json
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/app"
+          "path": "/hyt666"
         }
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom",
-      "settings": {},
-      "tag": "direct"
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
+      "protocol": "freedom"
     }
-  ],
-  "dns": {
-    "servers": [
-      "https+local://1.1.1.1/dns-query",
-      "1.1.1.1",
-      "1.0.0.1",
-      "8.8.8.8",
-      "8.8.4.4",
-      "localhost"
-    ]
-  },
-  "routing": {
-    "domainStrategy": "AsIs",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "VLESS-in"
-        ],
-        "outboundTag": "direct"
-      }
-    ]
-  }
+  ]
 }
 EOF
 
