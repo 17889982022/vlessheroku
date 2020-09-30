@@ -35,7 +35,7 @@ cat << EOF > /usr/local/etc/v2ray/config.json
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/hyt666"
+          "path": "/yjx123"
         }
       }
     }
