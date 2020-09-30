@@ -20,7 +20,7 @@ cat << EOF > /usr/local/etc/v2ray/config.json
   },
   "inbounds": [
     {
-      "port": 8080,
+      "port": $PORT,
       "tag": "VLESS-in",
       "protocol": "vless",
       "settings": {
